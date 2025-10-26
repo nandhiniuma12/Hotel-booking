@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏨 Hotel Paradise | Contact</title>
+<style>
+/* --- Reset & Base --- */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
+body { background-color: #f9f9f9; color: #333; }
+
+/* --- Header --- */
+header {
+  background-color: #004aad;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+header h1 { font-size: 1.8em; font-weight: 700; }
+nav ul { list-style: none; display: flex; }
+nav ul li { margin: 0 15px; }
+nav ul li a {
+  color: #fff; text-decoration: none; font-weight: bold;
+  font-size: 1em; padding: 5px 10px; border-radius: 5px;
+  transition: 0.3s;
+}
+nav ul li a:hover,
+nav ul li a.active { background-color: #ffcc00; color: #000; }
+
+/* --- Hero Section --- */
+.contact-header {
+  background: url("https://images.unsplash.com/photo-1568495248636-643d23018fdd?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+  height: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+}
+.contact-header::after {
+  content: "";
+  position: absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.5);
+}
+.contact-header h2 {
+  position: relative;
+  color: #fff;
+  font-size: 3em;
+  z-index: 1;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+/* --- Contact Section --- */
+.contact-container {
+  max-width: 1200px;
+  margin: -40px auto 50px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 50px 20px;
+  align-items: flex-start;
+}
+
+.contact-info {
+  flex: 1 1 400px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+.contact-info h3 { color: #004aad; margin-bottom: 20px; }
+.contact-info p { margin-bottom: 15px; font-size: 1em; color: #555; }
+.contact-info a { color: #004aad; text-decoration: none; font-weight: bold; }
+.contact-info a:hover { color: #ffcc00; }
+
+.contact-map {
+  flex: 2 1 600px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* --- Contact Form --- */
+.contact-form {
+  max-width: 700px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+.contact-form h3 {
+  color: #004aad;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.contact-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.contact-form input, 
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+.contact-form textarea { resize: vertical; height: 100px; }
+.contact-form button {
+  background: #004aad;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.contact-form button:hover {
+  background: #ffcc00;
+  color: #000;
+}
+
+/* --- Footer --- */
+footer {
+  background: #004aad;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 30px;
+}
+
+/* --- Responsive --- */
+@media(max-width:1024px){
+  .contact-container { flex-direction: column; align-items: center; }
+  .contact-map, .contact-info { flex: 1 1 100%; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🏨 Hotel Paradise</h1>
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="rooms.html">Rooms</a></li>
+      <li><a href="booking.html">Booking</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="contact-header">
+  <h2>Get in Touch</h2>
+</section>
+
+<!-- --- Contact Info + Map --- -->
+<div class="contact-container">
+  <div class="contact-info">
+    <h3>Contact Information</h3>
+    <p><strong>Address:</strong> Near Meenakshi Temple, Madurai, India</p>
+    <p><strong>Phone:</strong> <a href="tel:+919876543210">+91 98765 43210</a></p>
+    <p><strong>Email:</strong> <a href="mailto:info@hotelparadise.com">info@hotelparadise.com</a></p>
+    <p><strong>Follow us:</strong> 
+      <a href="#">Facebook</a> | 
+      <a href="#">Instagram</a> | 
+      <a href="#">Twitter</a>
+    </p>
+  </div>
+
+  <div class="contact-map">
+    <!-- Google Maps Embed -->
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.500391485165!2d78.11977507482645!3d9.919327591531692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c9d7b6e8c0a3%3A0x5d3e6e4f8796b6f0!2sMeenakshi%20Amman%20Temple!5e0!3m2!1sen!2sin!4v1698313905411!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</div>
+
+<!-- --- Contact Form --- -->
+<section class="contact-form">
+  <h3>Send Us a Message</h3>
+  <form action="#" method="post">
+    <label for="name">Your Name</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2025 🏨 Hotel Paradise | Near Meenakshi Temple, Madurai, India</p>
+</footer>
+
+</body>
+</html>

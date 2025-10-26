@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏨 Hotel Paradise | Home</title>
+  <style>
+    /* ---- Reset ---- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    /* ---- Header ---- */
+    header {
+      background-color: #004aad;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 1.8em;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1em;
+      transition: 0.3s;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    nav ul li a:hover, nav ul li a.active {
+      background-color: #ffcc00;
+      color: #000;
+    }
+
+    /* ---- Hero Section ---- */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80') 
+                  no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      max-width: 600px;
+      padding: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .hero-text h2 {
+      font-size: 3em;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+    }
+
+    .hero-text p {
+      font-size: 1.3em;
+      margin-bottom: 25px;
+      color: #f2f2f2;
+    }
+
+    .btn {
+      background: #ffcc00;
+      color: #000;
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #ffd633;
+      transform: scale(1.05);
+    }
+
+    /* ---- Welcome Section ---- */
+    .welcome {
+      text-align: center;
+      padding: 60px 20px;
+      background: #fff;
+    }
+
+    .welcome h2 {
+      color: #004aad;
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+
+    .welcome p {
+      font-size: 1.1em;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    /* ---- Highlights Section ---- */
+    .highlights {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      padding: 60px 20px;
+      background: linear-gradient(180deg, #f9f9f9 0%, #e9f0ff 100%);
+    }
+
+    .highlight-box {
+      width: 300px;
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .highlight-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .highlight-box h3 {
+      color: #004aad;
+      margin-bottom: 10px;
+      font-size: 1.3em;
+    }
+
+    .highlight-box p {
+      color: #555;
+      font-size: 0.95em;
+    }
+
+    /* ---- Footer ---- */
+    footer {
+      background: #004aad;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>🏨 Hotel Paradise</h1>
+    <nav>
+      <ul>
+        <li><a href="home.html" class="active">Home</a></li>
+        <li><a href="rooms.html">Rooms</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-text">
+      <h2>Experience Luxury & Comfort</h2>
+      <p>Your perfect stay in Madurai awaits at Hotel Paradise.</p>
+      <a href="booking.html" class="btn">Book Now</a>
+    </div>
+  </section>
+
+  <!-- Welcome Section -->
+  <section class="welcome">
+    <h2>Welcome to 🏨 Hotel Paradise</h2>
+    <p>
+      Nestled in the heart of Madurai, <strong>Hotel Paradise</strong> offers an unforgettable stay blending 
+      tradition and modern luxury. With stunning interiors, impeccable service, and convenient access 
+      to the city’s cultural treasures, we ensure every moment of your stay feels special.
+    </p>
+  </section>
+
+  <!-- Highlights Section -->
+  <section class="highlights">
+    <div class="highlight-box">
+      <h3>🌇 Prime Location</h3>
+      <p>Located just minutes from Meenakshi Temple and top city attractions.</p>
+    </div>
+    <div class="highlight-box">
+      <h3>🍽 Fine Dining</h3>
+      <p>Delight in exquisite flavors crafted by top chefs with local and global cuisine.</p>
+    </div>
+    <div class="highlight-box">
+      <h3>💆‍♀️ Luxury Comfort</h3>
+      <p>Relax in stylish rooms with premium amenities and warm hospitality.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 🏨 Hotel Paradise | Near Meenakshi Temple, Madurai, India</p>
+  </footer>
+</body>
+</html>

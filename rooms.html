@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rooms | Hotel Paradise</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background-color: #f9f9f9;
+    }
+
+    /* Header */
+    header {
+      background-color: #004aad;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+    }
+
+    header h1 {
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header h1::before {
+      content: "🏨";
+    }
+
+    /* Navbar */
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: #ffcc00;
+      color: #000;
+    }
+
+    nav ul li a.active {
+      background-color: #ffcc00;
+      color: #000;
+    }
+
+    /* Rooms Section */
+    .rooms {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .rooms h2 {
+      font-size: 2.3em;
+      color: #004080;
+      margin-bottom: 40px;
+    }
+
+    .room-card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .room-card {
+      background: white;
+      border-radius: 15px;
+      width: 300px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .room-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .room-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .room-card h3 {
+      color: #004080;
+      margin: 15px 0 5px 0;
+    }
+
+    .room-card p {
+      margin: 0 15px 20px 15px;
+      color: #333;
+      font-size: 0.95em;
+    }
+
+    footer {
+      background-color: #004aad;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .room-card-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    /* Modal Popup */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 600px;
+      text-align: left;
+      position: relative;
+      animation: pop 0.3s ease;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .close {
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #444;
+    }
+
+    .close:hover {
+      color: #ff0000;
+    }
+
+    .modal img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .modal h3 {
+      color: #004080;
+      margin-bottom: 10px;
+    }
+
+    .modal p {
+      color: #333;
+      font-size: 1em;
+      line-height: 1.6;
+    }
+
+    .book-btn {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: 0.3s;
+    }
+
+    .book-btn:hover {
+      background-color: #e6b800;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hotel Paradise</h1>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="rooms.html" class="active">Rooms</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="rooms">
+    <h2>Our Luxurious Rooms</h2>
+    <div class="room-card-container">
+      <div class="room-card" onclick="openModal('deluxe')">
+        <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Deluxe Room">
+        <h3>Deluxe Room</h3>
+        <p>₹4,000 / night — Includes breakfast, Wi-Fi, and city view.</p>
+      </div>
+
+      <div class="room-card" onclick="openModal('suite')">
+        <img src="https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Suite Room">
+        <h3>Suite Room</h3>
+        <p>₹7,000 / night — Spacious suite with living area and premium amenities.</p>
+      </div>
+
+      <div class="room-card" onclick="openModal('family')">
+        <img src="https://images.pexels.com/photos/210604/pexels-photo-210604.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Family Room">
+        <h3>Family Room</h3>
+        <p>₹6,000 / night — Perfect for families with extra beds and kid-friendly setup.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modals -->
+  <div id="deluxe" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('deluxe')">&times;</span>
+      <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800">
+      <h3>Deluxe Room</h3>
+      <p>
+        Enjoy a blend of comfort and elegance in our Deluxe Rooms. Each room features 
+        a king-sized bed, air conditioning, a private balcony, free high-speed Wi-Fi, 
+        flat-screen TV, and complimentary breakfast. Ideal for solo travelers or couples.
+      </p>
+      <button class="book-btn" onclick="window.location.href='booking.html'">Book Now</button>
+    </div>
+  </div>
+
+  <div id="suite" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('suite')">&times;</span>
+      <img src="https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=800">
+      <h3>Suite Room</h3>
+      <p>
+        Experience luxury at its finest with our Suite Rooms featuring a spacious living area,
+        premium furniture, a mini bar, large bathroom with bathtub, and personalized service.
+        Perfect for business travelers and families seeking top-tier comfort.
+      </p>
+      <button class="book-btn" onclick="window.location.href='booking.html'">Book Now</button>
+    </div>
+  </div>
+
+  <div id="family" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('family')">&times;</span>
+      <img src="https://images.pexels.com/photos/210604/pexels-photo-210604.jpeg?auto=compress&cs=tinysrgb&w=800">
+      <h3>Family Room</h3>
+      <p>
+        Designed for families, these rooms offer two large beds, kids’ play area, and
+        all essential amenities for a relaxing stay. Enjoy spacious comfort with
+        complimentary Wi-Fi, room service, and breakfast for all guests.
+      </p>
+      <button class="book-btn" onclick="window.location.href='booking.html'">Book Now</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Hotel Paradise | Madurai, India</p>
+  </footer>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = "flex";
+    }
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+    window.onclick = function(e) {
+      document.querySelectorAll('.modal').forEach(m => {
+        if (e.target === m) m.style.display = "none";
+      });
+    };
+  </script>
+</body>
+</html>

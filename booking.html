@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏨 Hotel Paradise | Booking</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #004aad;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 { font-size: 1.8em; font-weight: 700; }
+
+    nav ul { list-style: none; display: flex; }
+    nav ul li { margin: 0 15px; }
+
+    nav ul li a {
+      color: #fff; text-decoration: none;
+      font-weight: bold; font-size: 1em;
+      padding: 5px 10px; border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover, nav ul li a.active {
+      background-color: #ffcc00; color: #000;
+    }
+
+    .booking-header {
+      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      text-align: center;
+    }
+
+    .booking-header::after {
+      content: "";
+      position: absolute; top:0; left:0; width:100%; height:100%;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .booking-header h2 {
+      position: relative;
+      color: #fff; font-size: 3em; z-index: 1;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    }
+
+    .booking-section {
+      max-width: 900px;
+      margin: -50px auto 50px auto;
+      background: #fff;
+      padding: 50px; /* increased padding for spacious form */
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .booking-section h3 {
+      color: #004aad;
+      margin-bottom: 60px; /* increased gap below heading */
+      text-align: center;
+      font-size: 2em;
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 35px; /* slightly increased gap between form fields */
+    }
+
+    form .form-group {
+      flex: 1 1 45%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    form .form-group.full-width {
+      flex: 1 1 100%;
+    }
+
+    label {
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: #004aad;
+    }
+
+    input, select, textarea {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #004aad;
+      box-shadow: 0 0 8px rgba(0,74,173,0.3);
+    }
+
+    textarea { resize: vertical; min-height: 100px; }
+
+    .btn-submit {
+      background: #ffcc00;
+      color: #000;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+
+    .btn-submit:hover {
+      background: #ffd633;
+      transform: scale(1.05);
+    }
+
+    .booking-summary {
+      background: #e9f0ff;
+      padding: 25px;
+      margin-top: 40px; /* increased margin-top for better spacing */
+      border-radius: 12px;
+      display: none;
+    }
+
+    .booking-summary h4 {
+      color: #004aad;
+      margin-bottom: 15px;
+    }
+
+    .booking-summary p { margin: 5px 0; }
+
+    footer {
+      background: #004aad;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .booking-section { margin: -30px 20px 50px 20px; padding: 30px; }
+      form .form-group { flex: 1 1 100%; }
+    }
+
+    .guest-type { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+    .guest-type div { flex: 1 1 45%; }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🏨 Hotel Paradise</h1>
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="rooms.html">Rooms</a></li>
+      <li><a href="booking.html" class="active">Booking</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="booking-header">
+  <h2>Book Your Stay</h2>
+</section>
+
+<section class="booking-section">
+  <h3>Reserve Your Room</h3>
+  <form id="bookingForm">
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your full name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" placeholder="Enter your phone number" required>
+    </div>
+
+    <div class="form-group full-width">
+      <label>Number of Guests</label>
+      <div class="guest-type">
+        <div>
+          <label for="adults">Adults</label>
+          <input type="number" id="adults" min="0" value="1">
+        </div>
+        <div>
+          <label for="children">Children</label>
+          <input type="number" id="children" min="0" value="0">
+        </div>
+        <div>
+          <label for="seniors">Senior Citizens</label>
+          <input type="number" id="seniors" min="0" value="0">
+        </div>
+        <div>
+          <label for="couples">Couples</label>
+          <input type="number" id="couples" min="0" value="0">
+        </div>
+        <div>
+          <label for="friends">Friends</label>
+          <input type="number" id="friends" min="0" value="0">
+        </div>
+        <div>
+          <label for="family">Family</label>
+          <input type="number" id="family" min="0" value="0">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="room">Room Type</label>
+      <select id="room" required>
+        <option value="">Select</option>
+        <option>Deluxe Room</option>
+        <option>Suite Room</option>
+        <option>Family Room</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="checkin">Check-in Date</label>
+      <input type="date" id="checkin" required>
+    </div>
+    <div class="form-group">
+      <label for="checkout">Check-out Date</label>
+      <input type="date" id="checkout" required>
+    </div>
+    <div class="form-group full-width">
+      <label for="requests">Special Requests</label>
+      <textarea id="requests" placeholder="Any additional requests..."></textarea>
+    </div>
+    <div class="form-group full-width">
+      <button type="submit" class="btn-submit">Confirm Booking</button>
+    </div>
+  </form>
+
+  <div class="booking-summary" id="summary">
+    <h4>Booking Confirmation</h4>
+    <p id="summaryName"></p>
+    <p id="summaryEmail"></p>
+    <p id="summaryPhone"></p>
+    <p id="summaryGuests"></p>
+    <p id="summaryRoom"></p>
+    <p id="summaryCheckin"></p>
+    <p id="summaryCheckout"></p>
+    <p id="summaryRequests"></p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 🏨 Hotel Paradise | Near Meenakshi Temple, Madurai, India</p>
+</footer>
+
+<script>
+  document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const room = document.getElementById('room').value;
+    const checkin = document.getElementById('checkin').value;
+    const checkout = document.getElementById('checkout').value;
+    const requests = document.getElementById('requests').value;
+
+    const adults = document.getElementById('adults').value;
+    const children = document.getElementById('children').value;
+    const seniors = document.getElementById('seniors').value;
+    const couples = document.getElementById('couples').value;
+    const friends = document.getElementById('friends').value;
+    const family = document.getElementById('family').value;
+
+    document.getElementById('summaryName').innerText = `Name: ${name}`;
+    document.getElementById('summaryEmail').innerText = `Email: ${email}`;
+    document.getElementById('summaryPhone').innerText = `Phone: ${phone}`;
+    document.getElementById('summaryGuests').innerText = 
+      `Guests: Adults(${adults}), Children(${children}), Seniors(${seniors}), Couples(${couples}), Friends(${friends}), Family(${family})`;
+    document.getElementById('summaryRoom').innerText = `Room Type: ${room}`;
+    document.getElementById('summaryCheckin').innerText = `Check-in: ${checkin}`;
+    document.getElementById('summaryCheckout').innerText = `Check-out: ${checkout}`;
+    document.getElementById('summaryRequests').innerText = `Special Requests: ${requests || 'None'}`;
+
+    document.getElementById('summary').style.display = 'block';
+    window.scrollTo({ top: document.getElementById('summary').offsetTop, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>
